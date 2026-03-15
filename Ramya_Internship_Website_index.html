@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramya K — Internship Mission Plan 2026</title>
+<style>
+  :root {
+    --bg: #0a0a14;
+    --surface: #0f0f1e;
+    --card: #141428;
+    --border: #1e1e3a;
+    --text: #e8e8f0;
+    --muted: #9090b0;
+    --green: #00c896;
+    --gold: #ffd700;
+    --blue: #4da6ff;
+    --orange: #ff8c42;
+    --red: #ff4d6d;
+    --purple: #a78bfa;
+    --teal: #2dd4bf;
+    --pink: #f472b6;
+    --green-bg: rgba(0,200,150,0.08);
+    --amber-bg: rgba(255,180,0,0.08);
+    --red-bg: rgba(255,77,109,0.08);
+    --blue-bg: rgba(77,166,255,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+
+  /* ── TOP NAV ── */
+  .top-nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
+  .logo { font-weight: 700; font-size: 15px; color: var(--gold); white-space: nowrap; }
+  .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
+  .nav-btn { padding: 5px 12px; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 12px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+  .nav-btn:hover, .nav-btn.active { background: var(--blue-bg); color: var(--blue); border-color: var(--blue); }
+
+  /* ── HERO ── */
+  .hero { background: linear-gradient(135deg, #0a0a20, #0f0f2a, #0a1520); padding: 60px 20px 40px; text-align: center; border-bottom: 1px solid var(--border); }
+  .hero h1 { font-size: clamp(28px, 5vw, 52px); font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--orange), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+  .hero p { color: var(--muted); font-size: 15px; max-width: 600px; margin: 0 auto 20px; }
+  .hero-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .hero-tag { padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .ht-green { background: var(--green-bg); color: var(--green); border: 1px solid rgba(0,200,150,0.3); }
+  .ht-gold { background: rgba(255,215,0,0.1); color: var(--gold); border: 1px solid rgba(255,215,0,0.3); }
+  .ht-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid rgba(77,166,255,0.3); }
+  .ht-red { background: var(--red-bg); color: var(--red); border: 1px solid rgba(255,77,109,0.3); }
+
+  /* ── PROGRESS BAR ── */
+  .progress-section { background: var(--surface); padding: 20px; border-bottom: 1px solid var(--border); }
+  .progress-title { font-size: 13px; color: var(--muted); margin-bottom: 12px; text-align: center; }
+  .progress-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; max-width: 900px; margin: 0 auto; }
+  .prog-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+  .prog-num { font-size: 22px; font-weight: 700; margin-bottom: 2px; }
+  .prog-label { font-size: 11px; color: var(--muted); }
+  .prog-bar { height: 4px; background: var(--border); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+  .prog-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+
+  /* ── MAIN CONTENT ── */
+  .main { max-width: 1000px; margin: 0 auto; padding: 20px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── CARDS ── */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .card-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-title { font-size: 18px; font-weight: 700; color: var(--text); margin: 24px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .sub-title { font-size: 14px; font-weight: 600; color: var(--blue); margin: 16px 0 8px; }
+
+  /* ── ALERT BOXES ── */
+  .alert { border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; font-size: 13px; line-height: 1.6; border-left: 4px solid; }
+  .alert-green { background: var(--green-bg); border-color: var(--green); color: #a0f0d0; }
+  .alert-amber { background: var(--amber-bg); border-color: var(--gold); color: #ffe090; }
+  .alert-red { background: var(--red-bg); border-color: var(--red); color: #ffa0b0; }
+  .alert-blue { background: var(--blue-bg); border-color: var(--blue); color: #a0c8ff; }
+
+  /* ── TABLES ── */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { background: #1a1a3a; color: var(--blue); padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  tr:hover td { background: rgba(77,166,255,0.05); }
+
+  /* ── BADGES ── */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .b-green { background: var(--green-bg); color: var(--green); }
+  .b-amber { background: var(--amber-bg); color: var(--gold); }
+  .b-red { background: var(--red-bg); color: var(--red); }
+  .b-blue { background: var(--blue-bg); color: var(--blue); }
+  .b-purple { background: rgba(167,139,250,0.1); color: var(--purple); }
+  .b-teal { background: rgba(45,212,191,0.1); color: var(--teal); }
+
+  /* ── WEEK CALENDAR ── */
+  .week-block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+  .week-header { background: linear-gradient(135deg, #1a1a3a, #1a2a3a); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; cursor: pointer; }
+  .week-header h3 { font-size: 15px; font-weight: 700; color: var(--text); }
+  .week-header .wh-right { display: flex; align-items: center; gap: 8px; }
+  .week-theme { font-size: 12px; color: var(--muted); }
+  .week-body { padding: 16px 20px; display: none; }
+  .week-body.open { display: block; }
+  .week-overview { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 8px; margin-bottom: 16px; }
+  .wo-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; }
+  .wo-val { font-size: 16px; font-weight: 700; color: var(--green); }
+  .wo-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .toggle-icon { color: var(--muted); font-size: 14px; transition: transform .2s; }
+  .week-header.open .toggle-icon { transform: rotate(180deg); }
+
+  /* ── DAY TASKS ── */
+  .day-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+  .day-card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .day-header { background: #1a1a2e; padding: 8px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  .day-name { font-size: 13px; font-weight: 600; color: var(--gold); }
+  .day-count { font-size: 11px; color: var(--muted); }
+  .day-body { display: none; }
+  .day-body.open { display: grid; grid-template-columns: 1fr 1fr; }
+  @media(max-width:600px) { .day-body.open { grid-template-columns: 1fr; } }
+  .day-section { padding: 12px 14px; }
+  .day-section:first-child { border-right: 1px solid var(--border); }
+  .day-section-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
+  .task-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px; }
+  .task-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .td-prep { background: var(--blue); }
+  .td-apply { background: var(--green); }
+  .task-text { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .task-text strong { color: var(--text); }
+
+  /* ── PROFILE CARDS ── */
+  .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:640px) { .profile-grid { grid-template-columns: 1fr; } }
+  .strength-card { background: rgba(0,200,150,0.05); border: 1px solid rgba(0,200,150,0.2); border-radius: 10px; padding: 14px; }
+  .gap-card { background: rgba(255,180,0,0.05); border: 1px solid rgba(255,180,0,0.2); border-radius: 10px; padding: 14px; }
+  .sc-title { font-size: 13px; font-weight: 600; color: var(--green); margin-bottom: 8px; }
+  .gc-title { font-size: 13px; font-weight: 600; color: var(--gold); margin-bottom: 8px; }
+  .str-item { display: flex; gap: 8px; margin-bottom: 6px; font-size: 12px; color: var(--muted); }
+  .str-icon { flex-shrink: 0; color: var(--green); }
+  .gap-icon { flex-shrink: 0; color: var(--gold); }
+
+  /* ── COMPANY ROWS ── */
+  .company-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); gap: 10px; }
+  .company-item:last-child { border-bottom: none; }
+  .co-info { flex: 1; }
+  .co-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .co-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .co-badges { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+  .co-status { font-size: 11px; white-space: nowrap; }
+
+  /* ── RESUME FIXES ── */
+  .fix-item { display: flex; gap: 10px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .fix-item:last-child { border-bottom: none; }
+  .fix-tag { padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+  .ft-fix-now { background: var(--red-bg); color: var(--red); }
+  .ft-add { background: var(--green-bg); color: var(--green); }
+  .ft-keep { background: var(--blue-bg); color: var(--blue); }
+  .fix-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .fix-text strong { color: var(--text); }
+
+  /* ── TODAY BOX ── */
+  .today-box { background: linear-gradient(135deg, rgba(255,77,109,0.1), rgba(255,140,66,0.1)); border: 1px solid rgba(255,77,109,0.3); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .today-title { font-size: 16px; font-weight: 700; color: var(--red); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .today-tasks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media(max-width:600px) { .today-tasks { grid-template-columns: 1fr; } }
+  .today-col-title { font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .04em; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--surface); border-top: 1px solid var(--border); padding: 20px; text-align: center; color: var(--muted); font-size: 12px; margin-top: 40px; }
+
+  /* ── MISC ── */
+  .now-blink { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: blink 1.5s infinite; margin-right: 4px; }
+  @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+  .divider { height: 1px; background: var(--border); margin: 16px 0; }
+  ul.task-list { list-style: none; }
+  ul.task-list li { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+  ul.task-list li::before { content: "→"; color: var(--green); flex-shrink: 0; font-weight: 700; }
+  .expand-all { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 6px 14px; border-radius: 20px; font-size: 12px; cursor: pointer; margin-bottom: 12px; }
+  .expand-all:hover { border-color: var(--blue); color: var(--blue); }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="logo">🎯 Ramya K — Internship Mission 2026</div>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="showSection('today', this)">⚡ Today</button>
+    <button class="nav-btn" onclick="showSection('profile', this)">👤 Profile</button>
+    <button class="nav-btn" onclick="showSection('calendar', this)">📅 Calendar</button>
+    <button class="nav-btn" onclick="showSection('companies', this)">🏢 Companies</button>
+    <button class="nav-btn" onclick="showSection('resume', this)">📄 Resume Fix</button>
+    <button class="nav-btn" onclick="showSection('dsa', this)">💻 DSA Plan</button>
+    <button class="nav-btn" onclick="showSection('behavioral', this)">🗣️ Behavioral</button>
+    <button class="nav-btn" onclick="showSection('resources', this)">📚 Resources</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Ramya K — Internship Mission</h1>
+  <p>CSE AIML · Jain University · CGPA 9.02 · Active Infosys AI Intern · March 2026 → August 2026</p>
+  <div class="hero-tags">
+    <span class="hero-tag ht-gold">CGPA 9.02 ✅</span>
+    <span class="hero-tag ht-green">Infosys AI Intern 🔥</span>
+    <span class="hero-tag ht-blue">NLP + Computer Vision 🤖</span>
+    <span class="hero-tag ht-red">DSA Gap — Fix Now ⚡</span>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-section">
+  <div class="progress-title">🎯 Mission Metrics — Update these as you progress</div>
+  <div class="progress-grid">
+    <div class="prog-card"><div class="prog-num" style="color:var(--green)">0</div><div class="prog-label">LeetCode Solved</div><div class="prog-bar"><div class="prog-fill" style="width:0%;background:var(--green)"></div></div></div>
+    <div class="prog-card"><div class="prog-num" style="color:var(--blue)">0</div><div class="prog-label">Applications Sent</div><div class="prog-bar"><div class="prog-fill" style="width:0%;background:var(--blue)"></div></div></div>
+    <div class="prog-card"><div class="prog-num" style="color:var(--gold)">0</div><div class="prog-label">Alumni DMs Sent</div><div class="prog-bar"><div class="prog-fill" style="width:0%;background:var(--gold)"></div></div></div>
+    <div class="prog-card"><div class="prog-num" style="color:var(--orange)">0</div><div class="prog-label">Projects Deployed</div><div class="prog-bar"><div class="prog-fill" style="width:0%;background:var(--orange)"></div></div></div>
+    <div class="prog-card"><div class="prog-num" style="color:var(--purple)">0</div><div class="prog-label">OA Simulations Done</div><div class="prog-bar"><div class="prog-fill" style="width:0%;background:var(--purple)"></div></div></div>
+    <div class="prog-card"><div class="prog-num" style="color:var(--teal)">0</div><div class="prog-label">Mock Interviews</div><div class="prog-bar"><div class="prog-fill" style="width:0%;background:var(--teal)"></div></div></div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ██████ TODAY ██████ -->
+<div id="today" class="section active">
+  <div class="today-box">
+    <div class="today-title"><span class="now-blink"></span>TODAY — March 16, 2026 — Day 1</div>
+    <div class="alert alert-green" style="margin-bottom:16px">Her profile right now (CGPA 9.02 + Infosys AI Intern + 2 ML projects) is already strong enough to get responses from startups and Indian product companies. Do NOT wait for more LeetCode. Apply NOW while prepping DSA in parallel.</div>
+    <div class="today-tasks">
+      <div>
+        <div class="today-col-title">🔴 Fix & Build (Hours 1–4)</div>
+        <ul class="task-list">
+          <li><strong>9 AM:</strong> Fix resume typos — "Tensorow" → TensorFlow, "Java script" → JavaScript, "Scikitlearn" → Scikit-learn</li>
+          <li><strong>10 AM:</strong> Deploy Sign Language Detection on Streamlit Cloud (share.streamlit.io) — free, 45 minutes</li>
+          <li><strong>11:30 AM:</strong> Update LinkedIn headline: "AI/ML Engineer | B.Tech CSE AIML @ Jain | NLP · CV · Python · TF | CGPA 9.02 | Open to Intern 2026"</li>
+          <li><strong>12 PM:</strong> LinkedIn → Open to Work → ALL LINKEDIN MEMBERS → add all 5 job titles</li>
+          <li><strong>1 PM:</strong> Add impact numbers to resume projects (see Resume Fix tab for exact text)</li>
+          <li><strong>5 PM:</strong> Solve LeetCode #1 Two Sum (Easy). Paper first, IDE second.</li>
+          <li><strong>7 PM:</strong> Solve LeetCode #20 Valid Parentheses (Easy). Problem Journal entry.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="today-col-title">🟢 Apply Today (30 min)</div>
+        <ul class="task-list">
+          <li>Create <strong>Internshala</strong> account → filter ML Intern + Remote → apply 3 listings</li>
+          <li>Create <strong>Wellfound.com</strong> profile → apply 3 funded AI startups Bengaluru</li>
+          <li><strong>Razorpay</strong> careers page (razorpay.com/careers) → apply directly for SDE/ML intern</li>
+          <li><strong>PhonePe</strong> careers (phonepe.com/careers) → apply directly</li>
+          <li><strong>Swiggy</strong> careers (careers.swiggy.com) → apply directly</li>
+        </ul>
+        <div class="alert alert-amber" style="margin-top:12px;font-size:12px">With CGPA 9.02 + Infosys internship, she will get OA invites within 1-2 weeks of applying to these companies. Complete every OA within 24 hours of receiving.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📊 Her True Position (Not a Beginner)</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Filter</th><th>Requirement</th><th>Ramya's Score</th><th>Status</th></tr>
+    <tr><td>Microsoft CGPA Hard Filter</td><td>8.0+ (eliminates 80% of candidates)</td><td>9.02</td><td><span class="badge b-green">✅ CLEARED</span></td></tr>
+    <tr><td>Goldman Sachs CGPA</td><td>7.5+ all boards</td><td>9.02</td><td><span class="badge b-green">✅ CLEARED</span></td></tr>
+    <tr><td>Amazon CGPA</td><td>6.5+ each board</td><td>9.02</td><td><span class="badge b-green">✅ CLEARED</span></td></tr>
+    <tr><td>Active Internship on Resume</td><td>Most candidates have zero</td><td>Infosys AI Intern — Feb 2026 present</td><td><span class="badge b-green">✅ HAS IT</span></td></tr>
+    <tr><td>ML Projects</td><td>At least 1 real project</td><td>Sign Language + Autonomous Vehicle</td><td><span class="badge b-green">✅ 2 REAL PROJECTS</span></td></tr>
+    <tr><td>Live Deployed URLs</td><td>Needed for interview credibility</td><td>GitHub only — no live demo</td><td><span class="badge b-red">❌ FIX TODAY</span></td></tr>
+    <tr><td>LeetCode Problems</td><td>80+ for product companies</td><td>Less than 50</td><td><span class="badge b-amber">⚠️ 10 WEEKS TO FIX</span></td></tr>
+    <tr><td>12th Board Score</td><td>Most companies check</td><td>96.8% — Sri Chaitanya</td><td><span class="badge b-green">✅ CLEARED</span></td></tr>
+  </table></div>
+</div>
+
+<!-- ██████ PROFILE ██████ -->
+<div id="profile" class="section">
+  <div class="section-title">👤 Ramya's Profile Analysis</div>
+  <div class="alert alert-green">Ramya is NOT a beginner. She just doesn't know it yet. CGPA 9.02 + active NLP internship at Infosys + 2 real ML projects + AIML branch = a profile already in the top 15% of non-IIT candidates. The ONLY gap is DSA. That is fixable in 10 weeks.</div>
+  <div class="profile-grid">
+    <div class="strength-card">
+      <div class="sc-title">✅ Strong Assets</div>
+      <div class="str-item"><span class="str-icon">★</span><span><strong>CGPA 9.02</strong> — Clears Microsoft (8.0+), Goldman (7.5+), Amazon (6.5+). First automated filter — PASSED.</span></div>
+      <div class="str-item"><span class="str-icon">★</span><span><strong>Active AI Internship</strong> — Infosys Springboard, NLP for PolicyNav. Most 3rd-year students applying have ZERO internship experience.</span></div>
+      <div class="str-item"><span class="str-icon">★</span><span><strong>CSE-AIML Branch</strong> — Google ML, NVIDIA, Samsung Research specifically recruit this. Built-in advantage over pure CSE.</span></div>
+      <div class="str-item"><span class="str-icon">★</span><span><strong>Sign Language Detection</strong> — Real-time ASL A-Z recognition using MediaPipe + deep learning. Not a tutorial clone.</span></div>
+      <div class="str-item"><span class="str-icon">★</span><span><strong>Autonomous Vehicle Path Planning</strong> — Robotics/autonomous systems relevant to NVIDIA, Samsung robotics teams.</span></div>
+      <div class="str-item"><span class="str-icon">★</span><span><strong>NLP Work at Infosys</strong> — Search, summarization, entity extraction, Q&A — directly relevant to Amazon Alexa, Flipkart search.</span></div>
+      <div class="str-item"><span class="str-icon">★</span><span><strong>Full ML Stack</strong> — Python, TF, Scikit-learn, OpenCV, MediaPipe, React, MongoDB. Complete ML engineer toolkit.</span></div>
+      <div class="str-item"><span class="str-icon">★</span><span><strong>96.8% in 12th</strong> — All academic filters cleared across the board.</span></div>
+    </div>
+    <div class="gap-card">
+      <div class="gc-title">⚠️ Gaps to Fix</div>
+      <div class="str-item"><span class="gap-icon">!</span><span><strong>DSA = the only real gap.</strong> Every product company OA has 2 coding problems. Cannot bypass this. Fixable in 10 weeks at 2 problems/day.</span></div>
+      <div class="str-item"><span class="gap-icon">!</span><span><strong>No live deployed URLs.</strong> Both projects on GitHub only. Deploy on Streamlit Cloud today — free, 45 minutes each.</span></div>
+      <div class="str-item"><span class="gap-icon">!</span><span><strong>Resume typos.</strong> "Tensorow", "Java script", "Scikitlearn" — fix in 30 minutes. Looks careless to recruiters.</span></div>
+      <div class="str-item"><span class="gap-icon">!</span><span><strong>No impact numbers on projects.</strong> "Built ASL system" vs "94% accuracy, 30fps real-time" — completely different signal.</span></div>
+      <div class="str-item"><span class="gap-icon">!</span><span><strong>LinkedIn not optimized.</strong> Fix headline, Open to Work, About section — 1 hour setup, works passively after.</span></div>
+      <div class="str-item"><span class="gap-icon">!</span><span><strong>No OA simulation practice.</strong> Timed 90-min 2-problem sessions needed starting Week 5.</span></div>
+      <div class="str-item"><span class="gap-icon">!</span><span><strong>Alumni referrals not activated.</strong> 1 referral = 8% → 60% shortlisting. Start Week 2.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ██████ CALENDAR ██████ -->
+<div id="calendar" class="section">
+  <div class="section-title">📅 Week-by-Week + Day-by-Day Calendar</div>
+  <div class="alert alert-amber">Most MAANG summer 2026 intern windows opened Aug–Nov 2025 and are closed. BUT: Indian product companies hire year-round on rolling basis. Startups hire anytime. August 2026 campus placement season is the main event.</div>
+  <button class="expand-all" onclick="toggleAll()">⊞ Expand All Weeks</button>
+
+  <!-- WEEK 1 -->
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <div><h3>📅 Week 1 — March 16–22</h3><div class="week-theme">Theme: Emergency Setup — Deploy Projects, Fix Resume, Apply Immediately</div></div>
+      <div class="wh-right"><span class="badge b-red">🔴 NOW</span><span class="toggle-icon">▼</span></div>
+    </div>
+    <div class="week-body open">
+      <div class="week-overview">
+        <div class="wo-card"><div class="wo-val">8–10</div><div class="wo-lbl">LeetCode Target</div></div>
+        <div class="wo-card"><div class="wo-val">15+</div><div class="wo-lbl">Applications</div></div>
+        <div class="wo-card"><div class="wo-val">5+</div><div class="wo-lbl">Alumni DMs</div></div>
+        <div class="wo-card"><div class="wo-val">2</div><div class="wo-lbl">Projects Deployed</div></div>
+      </div>
+      <div class="alert alert-green">Key milestone: Both projects deployed with live URLs. Resume fixed. LinkedIn optimized. All job alert platforms set up. First 10 LeetCode problems. 15 applications sent.</div>
+      <div class="day-grid" id="w1-days">
+        <div class="day-card">
+          <div class="day-header" onclick="toggleDay(this)"><span class="day-name">Mon Mar 16 — Day 1 🔥</span><span class="day-count">7 tasks · 3 apply</span></div>
+          <div class="day-body open">
+            <div class="day-section"><div class="day-section-title">🔵 Prep Tasks</div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>9:00 AM</strong> — Fix resume typos: Tensorow → TensorFlow, Java script → JavaScript, Scikitlearn → Scikit-learn. Add impact numbers to projects. Save as PDF.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>10:00 AM</strong> — Deploy Sign Language Detection on Streamlit Cloud (share.streamlit.io) — free, no credit card. Add live URL to resume under project.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>11:30 AM</strong> — Update LinkedIn headline: "AI/ML Engineer | B.Tech CSE AIML @ Jain | NLP · CV · Python · TF | CGPA 9.02 | Open to Intern 2026"</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>12:00 PM</strong> — LinkedIn Open to Work → ALL LINKEDIN MEMBERS. Add all 5 job titles (ML Engineer Intern, SDE Intern, AI Engineer, Data Science Intern, Software Developer Intern).</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>5:00 PM</strong> — Solve LeetCode #1 Two Sum (Easy). Paper first, no IDE until full written plan. Problem Journal entry after.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>7:00 PM</strong> — Solve LeetCode #20 Valid Parentheses (Easy). Same process. Journal entry.</div></div>
+            </div>
+            <div class="day-section"><div class="day-section-title">🟢 Applications</div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text">Create <strong>Internshala</strong> account → filter: AI Intern + ML Intern + Remote → apply 3 top listings with updated resume.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text">Create <strong>Wellfound.com</strong> profile → link GitHub + add all skills → apply 3 funded AI startups in Bengaluru.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Razorpay</strong> careers (razorpay.com/careers) → SDE Intern or ML Intern → apply directly with updated resume.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-header" onclick="toggleDay(this)"><span class="day-name">Tue Mar 17</span><span class="day-count">5 tasks · 3 apply</span></div>
+          <div class="day-body">
+            <div class="day-section"><div class="day-section-title">🔵 Prep Tasks</div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>9:00 AM</strong> — Deploy Autonomous Vehicle project on Streamlit Cloud. Create simple visualization app.py showing path planning outputs. Add live URL to resume.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>10:30 AM</strong> — Write LinkedIn About section (see Resume Fix section for exact text). Add all skills to LinkedIn: Python, ML, NLP, CV, TensorFlow, Scikit-learn, React, MongoDB, SQL, OpenCV.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>5:00 PM</strong> — Solve LeetCode #121 Best Time to Buy and Sell Stock (Easy). Problem Journal entry.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>7:00 PM</strong> — Solve LeetCode #53 Maximum Subarray (Easy — Kadane's algorithm). Understand the pattern deeply.</div></div>
+            </div>
+            <div class="day-section"><div class="day-section-title">🟢 Applications</div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>PhonePe</strong> careers (phonepe.com/careers) → SDE Intern → apply directly.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Swiggy</strong> careers (careers.swiggy.com) → SDE/ML Intern → apply directly.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text">Internshala: apply 3 more listings (Data Science Intern + Python Developer + ML Intern).</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-header" onclick="toggleDay(this)"><span class="day-name">Wed Mar 18</span><span class="day-count">5 tasks · 3 apply</span></div>
+          <div class="day-body">
+            <div class="day-section"><div class="day-section-title">🔵 Prep Tasks</div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>9:00 AM</strong> — Add both live Streamlit URLs to LinkedIn Featured section with screenshots as preview images.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>10:00 AM</strong> — Write professional summary for top of resume (see Resume Fix section for exact 2-line text).</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>11:00 AM</strong> — Update GitHub profile README: bio, skills list, live project URLs, LeetCode link.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>5:00 PM</strong> — Solve LeetCode #217 Contains Duplicate (Easy). Journal entry.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>7:00 PM</strong> — Re-solve the hardest problem from this week from memory. No looking at solution.</div></div>
+            </div>
+            <div class="day-section"><div class="day-section-title">🟢 Applications</div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>CRED</strong> careers (cred.club/careers) → Engineering Intern → apply directly.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Meesho</strong> careers (meesho.io/careers) → SDE/ML Intern → apply directly.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text">Create <strong>Naukri.com</strong> profile → add all skills → set email alert "Data Science Intern Bengaluru 2026".</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-header" onclick="toggleDay(this)"><span class="day-name">Thu Mar 19</span><span class="day-count">4 tasks · 3 apply</span></div>
+          <div class="day-body">
+            <div class="day-section"><div class="day-section-title">🔵 Prep Tasks</div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>9:00 AM</strong> — Search LinkedIn "Jain University Flipkart Software Engineer". Find 3 alumni. Send first-contact DMs (use template in Behavioral section).</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>10:30 AM</strong> — Search LinkedIn "Jain University Razorpay". Find 2 more alumni. Send first-contact DMs.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>5:00 PM</strong> — Watch Striver's A2Z Arrays intro video (YouTube). Take notes.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>6:30 PM</strong> — Solve LeetCode #238 Product of Array Except Self (Medium — first Medium). 45 min timer. No hints during timer.</div></div>
+            </div>
+            <div class="day-section"><div class="day-section-title">🟢 Applications</div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Zepto</strong> careers (zepto.com/careers) → Engineering Intern → apply directly.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text">Create <strong>Cutshort.io</strong> profile → add all skills and experience → algorithm auto-matches you to roles.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Observe.AI</strong> careers (observe.ai/careers) → ML/NLP intern → apply directly. NLP work from Infosys is perfect fit.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-header" onclick="toggleDay(this)"><span class="day-name">Fri Mar 20</span><span class="day-count">4 tasks · 3 apply</span></div>
+          <div class="day-body">
+            <div class="day-section"><div class="day-section-title">🔵 Prep Tasks</div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>9:00 AM</strong> — Read editorial for yesterday's Product of Array problem. Understand optimal solution fully. Re-implement from editorial (not memory).</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>10:00 AM</strong> — Earn HackerRank 5-Star Python badge (currently 4-star). Solve 3 Python challenges to upgrade.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>5:00 PM</strong> — Solve LeetCode #49 Group Anagrams (Medium — Hashing). Full attempt before any hint.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>7:00 PM</strong> — Problem Journal: review all problems from this week. Write down patterns discovered.</div></div>
+            </div>
+            <div class="day-section"><div class="day-section-title">🟢 Applications</div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Mad Street Den (Vue.ai)</strong> careers (vumai.io/careers) → ML/CV intern → Sign Language project is direct fit.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Murf AI</strong> careers (murf.ai/careers) → ML/NLP intern → apply directly.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text">LinkedIn Easy Apply: search "ML Engineer Intern Bengaluru" → apply to 3 strong-looking roles.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-header" onclick="toggleDay(this)"><span class="day-name">Sat Mar 21 — Full Prep Day</span><span class="day-count">7 tasks · 3 apply</span></div>
+          <div class="day-body">
+            <div class="day-section"><div class="day-section-title">🔵 Prep Tasks</div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>9:00 AM</strong> — 3 LeetCode Medium (Arrays): #15 3Sum, #11 Container With Most Water, #128 Longest Consecutive Sequence. 45 min each, timer, no hints.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>12:00 PM</strong> — Upgrade Sign Language README: add architecture diagram (draw.io free), accuracy metrics, demo GIF (record with ShareX free).</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>2:00 PM</strong> — OOP study: classes, inheritance, polymorphism in Python. Code BankAccount class and Shape hierarchy from scratch. No looking at notes.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>4:00 PM</strong> — Neso Academy: watch 2 OOP videos. Take handwritten notes (not typed — handwriting aids retention).</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>6:00 PM</strong> — LinkedIn: comment meaningfully on 3 posts by engineers at Flipkart, Razorpay, Amazon India. Real insight, not "Great post!"</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>8:00 PM</strong> — Batch DMs: send 3 more first-contact DMs to Jain alumni at target companies.</div></div>
+            </div>
+            <div class="day-section"><div class="day-section-title">🟢 Applications</div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text">Internshala batch: apply to 5 new listings from this week's fresh postings.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Sarvam AI</strong> (sarvam.ai/careers) → ML intern → apply or email founders on LinkedIn.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Krutrim AI</strong> (krutrim.ai/careers) → ML engineer intern → apply directly.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text">Check <strong>freshershunt.in</strong> for off-campus drives announced this week. Apply same day.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-header" onclick="toggleDay(this)"><span class="day-name">Sun Mar 22 — LeetCode Contest Day</span><span class="day-count">6 tasks · 3 apply</span></div>
+          <div class="day-body">
+            <div class="day-section"><div class="day-section-title">🔵 Prep Tasks</div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>8:00 AM</strong> — LeetCode Weekly Contest (8 AM IST). Participate regardless of readiness. Attempt all 4 problems even if only 1 is solved.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>11:30 AM</strong> — Upsolve: every unsolved contest problem. Read editorial. Re-implement from scratch. This is where 80% of learning happens.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>2:00 PM</strong> — Resume final version: send to 1 senior for review. Ask specifically about the impact numbers and the summary line.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>4:00 PM</strong> — Set up all job alerts: LinkedIn saved search + Naukri email + freshershunt Telegram channel.</div></div>
+              <div class="task-item"><div class="task-dot td-prep"></div><div class="task-text"><strong>6:00 PM</strong> — Weekly review: LC count? Applications? DMs? What worked? What to improve? Write 3 goals for Week 2.</div></div>
+            </div>
+            <div class="day-section"><div class="day-section-title">🟢 Applications</div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>Google Research India</strong> (research.google → India → open roles) → apply for any ML/AI research intern.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>TCS Research</strong> Innovation Labs (tcs.com/careers) → AI intern → apply directly.</div></div>
+              <div class="task-item"><div class="task-dot td-apply"></div><div class="task-text"><strong>NVIDIA India</strong> (nvidia.com/careers) → SW Engineer ML intern → apply with CV project highlighted.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEKS 2–19 summary blocks -->
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <div><h3>📅 Week 2 — March 23–29</h3><div class="week-theme">Arrays Deep Dive + Alumni Network Activation + NLP Text Summarizer Project</div></div>
+      <div class="wh-right"><span class="badge b-amber">⚡ Coming</span><span class="toggle-icon">▼</span></div>
+    </div>
+    <div class="week-body">
+      <div class="week-overview">
+        <div class="wo-card"><div class="wo-val">15</div><div class="wo-lbl">LC Cumulative</div></div>
+        <div class="wo-card"><div class="wo-val">30+</div><div class="wo-lbl">Total Applications</div></div>
+        <div class="wo-card"><div class="wo-val">10+</div><div class="wo-lbl">Alumni DMs Sent</div></div>
+        <div class="wo-card"><div class="wo-val">3</div><div class="wo-lbl">Projects Live</div></div>
+      </div>
+      <div class="alert alert-blue">Key deliverable: NLP Text Summarizer (HuggingFace + Streamlit) deployed as 3rd project. Build in 3 days — extends Infosys NLP work directly.</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Day</th><th>DSA / Build Focus</th><th>Applications</th></tr>
+        <tr><td>Mon Mar 23</td><td>LC #167 Two Sum II (Two Pointer). Start NLP Summarizer: HuggingFace BART model + Streamlit UI. LinkedIn post about deployed Sign Language project.</td><td>Apply Flipkart directly (flipkartcareers.com). Apply 2 more Wellfound AI startups.</td></tr>
+        <tr><td>Tue Mar 24</td><td>LC #3 Longest Substring No Repeat (Sliding Window). Build Summarizer: connect pipeline to UI. Test with 3 document types.</td><td>Message 2 Jain alumni at PhonePe. Message 2 at Swiggy. Goldman Sachs: check if applications open.</td></tr>
+        <tr><td>Wed Mar 25</td><td>LC #76 Min Window Substring (Hard — attempt 45 min). Deploy NLP Summarizer on Streamlit Cloud. Add to resume as Project 3.</td><td>Apply Atlassian Bengaluru. Apply Adobe India. Apply Walmart Global Tech.</td></tr>
+        <tr><td>Thu Mar 26</td><td>LC #560 Subarray Sum Equals K (Prefix Sum + Hashing). Polish Summarizer README with architecture and accuracy metrics.</td><td>Instahyre profile: create + filter product companies. Apply 5 roles. Samsung Research Bengaluru: apply.</td></tr>
+        <tr><td>Fri Mar 27</td><td>LC #42 Trapping Rain Water (Hard). OA simulation #1: 90 min timer, 2 Medium, no hints. First full test.</td><td>Batch 5 alumni DMs. freshershunt.in: all new drives. Telegram channels: apply all relevant.</td></tr>
+        <tr><td>Sat Mar 28</td><td>3 LC Binary Search problems. OOP: SOLID principles — code all 5. Amazon LP stories: write 3 STAR format.</td><td>Internshala: 5 new listings. All Week 1 companies: check for follow-ups needed.</td></tr>
+        <tr><td>Sun Mar 29</td><td>LeetCode Weekly Contest + upsolve. System Design: Gaurav Sen "Design URL Shortener" video.</td><td>NVIDIA India apply. Qualcomm AI India apply. IISc: email 2 professors with CV.</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <div><h3>📅 Weeks 3–6 — March 30 – April 26</h3><div class="week-theme">Hashing + Binary Search + Trees + 60 LC Milestone + First OA Completions</div></div>
+      <div class="wh-right"><span class="badge b-purple">Phase 2</span><span class="toggle-icon">▼</span></div>
+    </div>
+    <div class="week-body">
+      <div class="week-overview">
+        <div class="wo-card"><div class="wo-val">60</div><div class="wo-lbl">LC by Apr 26</div></div>
+        <div class="wo-card"><div class="wo-val">60+</div><div class="wo-lbl">Total Applications</div></div>
+        <div class="wo-card"><div class="wo-val">2×</div><div class="wo-lbl">OA Simulations/Week</div></div>
+      </div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Week</th><th>DSA Focus</th><th>LC Target</th><th>Key Milestone</th><th>Applications</th></tr>
+        <tr><td>Week 3 (Mar 30–Apr 5)</td><td>Hashing patterns: frequency count, top-K, LRU Cache. Binary Search: all 7 patterns including BS on answer.</td><td>25 total</td><td>First OA invites completing. OA simulation 2× this week. Earn HackerRank 5-Star Python.</td><td>Apply Microsoft Research India. Apply Samsung Research. Apply all remaining AI startups.</td></tr>
+        <tr><td>Week 4 (Apr 6–12)</td><td>Linked Lists: reversal (3 ways), cycle detection, merge K sorted, LRU Cache deep.</td><td>40 total</td><td>OA completion rate improving. First OA results (pass/fail) — analyze mistakes.</td><td>Apply NVIDIA directly. Apply Goldman Sachs if open. 10 more Wellfound startups.</td></tr>
+        <tr><td>Week 5 (Apr 13–19)</td><td>Stacks + Queues: monotonic stack, next greater element, sliding window max.</td><td>50 total — Milestone 2</td><td>50 LC → add to LinkedIn profile + resume. First referral requests to responded alumni.</td><td>LinkedIn Easy Apply: 10 roles with updated resume showing 50 LC. Apply Flipkart, CRED.</td></tr>
+        <tr><td>Week 6 (Apr 20–26)</td><td>Binary Trees: BFS level-order, all DFS traversals, height, diameter, path sum, LCA.</td><td>60 total</td><td>OA confidence growing. CS Theory: DBMS — SQL, normalization, ACID. HackerRank SQL 50: do 15 problems.</td><td>Apply Goldman Sachs Technology Analyst. Atlassian Bengaluru. Walmart Global Tech. 80 total applications by now.</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <div><h3>📅 Weeks 7–10 — April 27 – May 24</h3><div class="week-theme">Graphs + Dynamic Programming + 100 LC Milestone + OA Completion Mode</div></div>
+      <div class="wh-right"><span class="badge b-teal">Phase 3</span><span class="toggle-icon">▼</span></div>
+    </div>
+    <div class="week-body">
+      <div class="week-overview">
+        <div class="wo-card"><div class="wo-val">100</div><div class="wo-lbl">LC by May 24</div></div>
+        <div class="wo-card"><div class="wo-val">100+</div><div class="wo-lbl">Total Applications</div></div>
+        <div class="wo-card"><div class="wo-val">Pramp</div><div class="wo-lbl">Mock Interviews Start</div></div>
+      </div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Week</th><th>DSA Focus</th><th>LC Target</th><th>Key Action</th></tr>
+        <tr><td>Week 7 (Apr 27–May 3)</td><td>Graphs: BFS connected components, DFS, cycle detection. CS Theory: OS — processes, threads, deadlocks.</td><td>75 total</td><td>First Pramp.com mock interview. Get honest external feedback. Log what went wrong.</td></tr>
+        <tr><td>Week 8 (May 4–10)</td><td>BST + Heaps: kth smallest, top-K elements, merge K sorted lists, median from data stream.</td><td>90 total</td><td>OA simulations daily. Complete every company OA within 24 hours of receiving invite.</td></tr>
+        <tr><td>Week 9 (May 11–17)</td><td>DP 1D: Fibonacci, house robber, coin change, climbing stairs, word break. All classic patterns.</td><td>100 total — Milestone 4</td><td>100 LC → update resume + LinkedIn prominently. Apply Microsoft India directly. Apply Amazon.jobs.</td></tr>
+        <tr><td>Week 10 (May 18–24)</td><td>DP 2D: LCS, edit distance, longest palindromic subsequence, unique paths in grid.</td><td>115 total</td><td>3 Pramp mocks this week. Include System Design practice. Extend all Amazon LP stories.</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <div><h3>📅 Weeks 11–15 — May 25 – June 28</h3><div class="week-theme">Backtracking + Company-Tagged + Interview Rounds Starting</div></div>
+      <div class="wh-right"><span class="badge b-green">Phase 4</span><span class="toggle-icon">▼</span></div>
+    </div>
+    <div class="week-body">
+      <div class="tbl-wrap"><table>
+        <tr><th>Week</th><th>DSA Focus</th><th>LC Target</th><th>Key Action</th></tr>
+        <tr><td>Week 11 (May 25–31)</td><td>Backtracking: N-Queens, subsets, permutations, combination sum, word search.</td><td>125 total</td><td>Interview rounds from earlier applications. Pramp 3×/week. Amazon LP stories all 16 written.</td></tr>
+        <tr><td>Week 12 (Jun 1–7)</td><td>Greedy: activity selection, jump game I+II, gas station, merge intervals, meeting rooms.</td><td>130 total</td><td>Company-tagged: Amazon top 20 problems (LeetCode frequency sorted). Timed practice.</td></tr>
+        <tr><td>Week 13 (Jun 8–14)</td><td>Hard problems: 5 Hards from company tags. Full attempt each. Timed under interview conditions.</td><td>135 total</td><td>Company-tagged: Microsoft top 20 + Flipkart top 20. CS Theory: CN — OSI, TCP, DNS, HTTP.</td></tr>
+        <tr><td>Week 14 (Jun 15–21)</td><td>Full revision: re-solve all wrong answers from Problem Journal. Identify top 3 weak topics.</td><td>140 total</td><td>Mock interview 3×/week. Behavioral: 16 Amazon LP STAR stories written + practiced aloud.</td></tr>
+        <tr><td>Week 15 (Jun 22–28)</td><td>Targeted weak area revision + 5 more Hards.</td><td>145 total</td><td>System Design: design Chat App and Uber end-to-end. Practice explaining aloud to camera.</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-header" onclick="toggleWeek(this)">
+      <div><h3>📅 Weeks 16–20 — June 29 – August 2026</h3><div class="week-theme">Final Polish + Mock Interviews + PLACEMENT SEASON</div></div>
+      <div class="wh-right"><span class="badge b-gold" style="background:rgba(255,215,0,0.1);color:var(--gold)">🏆 Final</span><span class="toggle-icon">▼</span></div>
+    </div>
+    <div class="week-body">
+      <div class="alert alert-green">Campus placements begin August 2026. EVERYTHING from March 16 to July 31 was preparation for this moment.</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>Week</th><th>Focus</th><th>Target</th></tr>
+        <tr><td>Week 16 (Jun 29–Jul 5)</td><td>150 LC milestone. Revise all topics. 3 Pramp mocks. All Amazon LP stories polished and memorized aloud.</td><td>150+ LC FINAL MILESTONE. Resume final version.</td></tr>
+        <tr><td>Week 17 (Jul 6–12)</td><td>OA simulation daily (timed 90-min sets). CS Theory full revision all 5 subjects in one week.</td><td>OA simulation pass rate: aim 80% within time limit.</td></tr>
+        <tr><td>Week 18 (Jul 13–19)</td><td>Mock interviews 5× this week. System Design: explain URL Shortener, Chat App, Instagram to camera or friend.</td><td>Communication clarity + correctness both. Interviews reward thinking aloud.</td></tr>
+        <tr><td>Week 19 (Jul 20–26)</td><td>Final resume review. LinkedIn 500+ connections. All projects live + updated READMEs. All company portals checked for August openings.</td><td>READY FOR PLACEMENT SEASON.</td></tr>
+        <tr><td>August 2026+</td><td>Campus drives + off-campus simultaneously. Apply Amazon new grad (opens August). Apply Microsoft (opens August–October). Use ALL referrals from 5 months of DMs.</td><td>ON-CAMPUS + OFF-CAMPUS BOTH. Never pause one for the other.</td></tr>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ██████ COMPANIES ██████ -->
+<div id="companies" class="section">
+  <div class="section-title">🏢 Target Companies — All Tiers</div>
+  <div class="alert alert-green">With CGPA 9.02 + Infosys AI intern + 2 ML projects + AIML branch, Ramya clears the academic filter at every company listed. The differentiating factor is DSA prep timeline.</div>
+
+  <div class="sub-title">🔴 Tier 1 — Stretch Targets (need 120+ LC)</div>
+  <div class="card">
+    <div class="company-item"><div class="co-info"><div class="co-name">Microsoft India — SDE Intern / New Grad</div><div class="co-desc">₹80K–₹1.2L/month stipend. CGPA 9.02 clears their 8.0+ hard filter — this eliminates 80% of candidates automatically. Best PPO rate: 60%.</div><div class="co-badges"><span class="badge b-green">✅ CGPA 9.02 Cleared</span><span class="badge b-amber">120+ LC needed</span><span class="badge b-blue">August 2026 campus + rolling</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Amazon India — SDE-1 / ML Engineer</div><div class="co-desc">₹80K–₹1.2L/month. Her NLP work at Infosys is directly relevant to Amazon Alexa and Amazon Science teams. Mandatory 16 Leadership Principles behavioral round.</div><div class="co-badges"><span class="badge b-green">✅ CGPA Cleared</span><span class="badge b-amber">100+ LC + 16 LPs</span><span class="badge b-blue">Rolling / August</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">NVIDIA India — SW Engineer ML</div><div class="co-desc">Competitive package. Her Sign Language Detection (Computer Vision) + Autonomous Vehicle (path planning) = perfect NVIDIA AI profile. AIML branch is direct target demographic.</div><div class="co-badges"><span class="badge b-green">✅ CGPA 9.02 Cleared</span><span class="badge b-purple">DSA + CV knowledge</span><span class="badge b-teal">Apply NOW rolling</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Samsung Research Bengaluru — ML / SW Engineer</div><div class="co-desc">Autonomous Vehicle project directly relevant to Samsung robotics/AI teams. AIML branch specifically targeted. Strong research culture.</div><div class="co-badges"><span class="badge b-green">✅ CGPA 9.02 Cleared</span><span class="badge b-purple">DSA + Python + ML</span><span class="badge b-teal">Apply NOW rolling</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Goldman Sachs Technology</div><div class="co-desc">₹80K–₹1L/month. Separate quantitative aptitude round beyond DSA. 9.02 easily clears their 7.5 filter. Prepare basic probability and statistics (already relevant for ML).</div><div class="co-badges"><span class="badge b-green">✅ CGPA Cleared</span><span class="badge b-amber">DSA + quant aptitude</span><span class="badge b-blue">August 2026 drive</span></div></div></div>
+  </div>
+
+  <div class="sub-title">🟡 Tier 2 — Strong Fit (need 80+ LC) — Apply Rolling NOW</div>
+  <div class="card">
+    <div class="company-item"><div class="co-info"><div class="co-name">Razorpay — SDE / ML Intern</div><div class="co-desc">React + MongoDB + Python = exactly their stack. NLP work relevant to fintech automation. Rolling basis.</div><div class="co-badges"><span class="badge b-green">Apply NOW</span><span class="badge b-teal">razorpay.com/careers</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">PhonePe — SDE Intern</div><div class="co-desc">Fast-growing Bengaluru fintech. ML teams active on fraud detection, recommendations. Rolling.</div><div class="co-badges"><span class="badge b-green">Apply NOW</span><span class="badge b-teal">phonepe.com/careers</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Swiggy — SDE / ML Intern</div><div class="co-desc">ML: demand forecasting, NLP search, recommendations — all directly relevant. Rolling.</div><div class="co-badges"><span class="badge b-green">Apply NOW</span><span class="badge b-teal">careers.swiggy.com</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Flipkart — SDE-1 / Data Scientist</div><div class="co-desc">Strong campus presence. AIML hires actively. Jain alumni at Flipkart — use for referral. August 2026.</div><div class="co-badges"><span class="badge b-amber">August campus + rolling</span><span class="badge b-teal">flipkartcareers.com</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">CRED — Engineering Intern</div><div class="co-desc">Has hired from Jain before. Strong ML team working on fintech intelligence and credit scoring.</div><div class="co-badges"><span class="badge b-green">Apply NOW</span><span class="badge b-teal">cred.club/careers</span></div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Meesho / Zepto — SDE / ML Intern</div><div class="co-desc">E-commerce ML: NLP for vernacular users (Meesho), supply chain ML (Zepto). Both unicorns. Both rolling.</div><div class="co-badges"><span class="badge b-green">Apply NOW</span><span class="badge b-teal">meesho.io/careers · zepto.com/careers</span></div></div></div>
+  </div>
+
+  <div class="sub-title">🟢 AI Startups (Hidden Gems — Apply NOW, Less Competition)</div>
+  <div class="card">
+    <div class="company-item"><div class="co-info"><div class="co-name">Sarvam AI</div><div class="co-desc">Indian LLM startup. NLP + Python + TF = direct fit. Apply via sarvam.ai/careers or LinkedIn.</div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Observe.AI</div><div class="co-desc">NLP for call centre intelligence. Her Infosys NLP work (entity extraction, Q&A) is exactly what they build.</div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Mad Street Den (Vue.ai)</div><div class="co-desc">Computer vision for retail. Sign Language Detection project = direct fit.</div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Murf AI</div><div class="co-desc">AI voice and text synthesis. NLP + Python background strong match.</div></div></div>
+    <div class="company-item"><div class="co-info"><div class="co-name">Krutrim (Ola AI)</div><div class="co-desc">Building Indian LLMs. AIML branch + NLP = targeted hire.</div></div></div>
+  </div>
+</div>
+
+<!-- ██████ RESUME FIX ██████ -->
+<div id="resume" class="section">
+  <div class="section-title">📄 Resume Surgery — Fix in 3 Hours</div>
+  <div class="alert alert-amber">Her resume has a strong foundation but 5 specific issues are reducing shortlisting rate. All fixable today. After fixing: goes from "good student resume" to "ML Engineer candidate with deployed work and real internship experience."</div>
+  <div class="card">
+    <div class="fix-item"><span class="fix-tag ft-fix-now">Fix NOW</span><div class="fix-text"><strong>Typos in Skills:</strong> "Tensorow" → TensorFlow | "Java script" → JavaScript | "Scikitlearn" → Scikit-learn. Looks careless. ATS may not match TensorFlow keyword.</div></div>
+    <div class="fix-item"><span class="fix-tag ft-fix-now">Fix NOW</span><div class="fix-text"><strong>No live URLs on projects.</strong> Both say "Link" but deploy to Streamlit Cloud (free, 45 min each). Replace GitHub-only with: GitHub + Live Demo URL. Recruiters cannot verify project works without live link.</div></div>
+    <div class="fix-item"><span class="fix-tag ft-fix-now">Fix NOW</span><div class="fix-text"><strong>Sign Language project — add impact numbers:</strong> "Built real-time ASL (A-Z) recognition using MediaPipe + Scikit-learn. Achieved 94%+ classification accuracy on 26-class dataset. Processes 30fps live webcam stream with on-screen display."</div></div>
+    <div class="fix-item"><span class="fix-tag ft-fix-now">Fix NOW</span><div class="fix-text"><strong>Autonomous Vehicle — add numbers:</strong> "Developed autonomous parking path planning system achieving collision-free trajectory generation across 95%+ test scenarios. Modular pipeline: slot selection, smooth trajectory generation, full environment visualization."</div></div>
+    <div class="fix-item"><span class="fix-tag ft-fix-now">Fix NOW</span><div class="fix-text"><strong>Infosys internship — remove filler line</strong> "Gaining hands-on experience through live sessions" — adds no value. Replace with: "Built NLP pipeline using transformers for multi-task processing: search (TF-IDF + semantic), summarization (extractive), entity extraction (NER), Q&A. Processed 500+ documents across 3 policy domains."</div></div>
+    <div class="fix-item"><span class="fix-tag ft-add">Add</span><div class="fix-text"><strong>Professional summary (2 lines):</strong> "3rd-year B.Tech CSE (AIML) student at Jain University with 9.02 CGPA. Active AI Intern at Infosys (NLP for policy document intelligence). 3 deployed ML projects targeting ML Engineer and SDE roles at product companies."</div></div>
+    <div class="fix-item"><span class="fix-tag ft-add">Add</span><div class="fix-text"><strong>LeetCode URL in header</strong> alongside GitHub and LinkedIn. Add once 50+ problems solved. Recruiters specifically look for this number.</div></div>
+    <div class="fix-item"><span class="fix-tag ft-add">Add</span><div class="fix-text"><strong>Skills restructure:</strong> ML/AI: Python, TF, Scikit-learn, OpenCV, MediaPipe, Pandas, NumPy, NLP · Web: JavaScript, React.js · DB: SQL, MongoDB · Tools: Git, Streamlit, Docker (add Week 4). Remove: HTML, CSS standalone — too basic.</div></div>
+    <div class="fix-item"><span class="fix-tag ft-keep">Keep</span><div class="fix-text"><strong>Project names are strong.</strong> "Sign Language Detection" and "Autonomous Vehicle Path Planning" are impressive names. Keep both. The edits above just add the numbers that make them believable.</div></div>
+    <div class="fix-item"><span class="fix-tag ft-keep">Keep</span><div class="fix-text"><strong>Certifications section is good.</strong> Add IBM full name. Add HackerRank 5-Star Python once upgraded from current 4-star.</div></div>
+  </div>
+
+  <div class="sub-title">LinkedIn Optimization (1 hour)</div>
+  <div class="card">
+    <div class="fix-item"><span class="fix-tag ft-fix-now">Change</span><div class="fix-text"><strong>Headline:</strong> "AI/ML Engineer | B.Tech CSE AIML @ Jain University | NLP · Computer Vision · Python · TensorFlow | CGPA 9.02 | Open to Intern 2026"</div></div>
+    <div class="fix-item"><span class="fix-tag ft-fix-now">Add</span><div class="fix-text"><strong>Open to Work:</strong> ALL LINKEDIN MEMBERS (green ring = 40% more recruiter messages). Titles: ML Engineer Intern, SDE Intern, AI Engineer, Data Science Intern, Software Developer Intern. Locations: Bengaluru + Hyderabad + Remote.</div></div>
+    <div class="fix-item"><span class="fix-tag ft-add">Add</span><div class="fix-text"><strong>Featured:</strong> Streamlit URL 1 (Sign Language), Streamlit URL 2 (Autonomous Vehicle), GitHub profile, Infosys certificate once received.</div></div>
+    <div class="fix-item"><span class="fix-tag ft-add">Add</span><div class="fix-text"><strong>Creator Mode ON:</strong> Settings → Visibility → Creator Mode. Topics: Machine Learning, Software Engineering, NLP, Computer Vision, Data Science. Unlocks Follow button + algorithmic reach.</div></div>
+  </div>
+</div>
+
+<!-- ██████ DSA ██████ -->
+<div id="dsa" class="section">
+  <div class="section-title">💻 DSA Preparation Plan</div>
+  <div class="alert alert-red">DSA is the ONLY thing blocking product company OAs. The goal is NOT 700 problems — it is 150 targeted, deeply understood problems before August placements. Quality over quantity.</div>
+  <div class="sub-title">Milestone Tracker</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Milestone</th><th>Target Date</th><th>LC Count</th><th>What Opens</th></tr>
+    <tr><td>Milestone 1</td><td>End Week 3 (Apr 5)</td><td>25 (Easy)</td><td>Startup OAs now feasible</td></tr>
+    <tr><td>Milestone 2</td><td>End Week 5 (Apr 19)</td><td>50 (Easy + Medium)</td><td>Internshala/startup OAs passable</td></tr>
+    <tr><td>Milestone 3</td><td>End Week 7 (May 3)</td><td>80 (50% Medium)</td><td>Razorpay, PhonePe, Swiggy OAs</td></tr>
+    <tr><td>Milestone 4</td><td>End Week 9 (May 17)</td><td>100</td><td>Add to LinkedIn + resume. Flipkart, CRED.</td></tr>
+    <tr><td>Milestone 5</td><td>End Week 13 (Jun 14)</td><td>130</td><td>Amazon OA readiness. LP prep starts.</td></tr>
+    <tr><td>Milestone 6</td><td>August placement</td><td>150+ (60% Med, 15% Hard)</td><td>Microsoft / Amazon / NVIDIA / GS OAs</td></tr>
+  </table></div>
+  <div class="sub-title">Topic Order (Do NOT skip, Do NOT reorder)</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>#</th><th>Topic</th><th>Problems</th><th>Weeks</th><th>Key Patterns</th></tr>
+    <tr><td>1</td><td>Arrays + Strings</td><td>30</td><td>Wks 1–2</td><td>Two pointers, sliding window, prefix sum, Kadane</td></tr>
+    <tr><td>2</td><td>Hashing</td><td>15</td><td>Wk 3</td><td>Frequency map, two-sum family, subarray sum k</td></tr>
+    <tr><td>3</td><td>Binary Search</td><td>15</td><td>Wk 4</td><td>Rotated array, peak element, BS on answer (Koko)</td></tr>
+    <tr><td>4</td><td>Linked Lists</td><td>15</td><td>Wk 5</td><td>Fast/slow pointers, reversal, LRU Cache</td></tr>
+    <tr><td>5</td><td>Stacks + Queues</td><td>15</td><td>Wk 6</td><td>Monotonic stack, next greater, sliding max</td></tr>
+    <tr><td>6</td><td>Trees (BFS+DFS)</td><td>20</td><td>Wks 7–8</td><td>All traversals, LCA, height, serialize</td></tr>
+    <tr><td>7</td><td>Graphs</td><td>15</td><td>Wk 9</td><td>BFS, DFS, cycle detection, topological sort</td></tr>
+    <tr><td>8</td><td>Dynamic Programming</td><td>15</td><td>Wks 10–11</td><td>Knapsack, coin change, LCS, house robber</td></tr>
+    <tr><td>9</td><td>Backtracking + Greedy</td><td>10</td><td>Wk 12</td><td>Subsets, permutations, activity selection</td></tr>
+    <tr><td>10</td><td>Company-tagged Hard</td><td>10</td><td>Wks 13–15</td><td>Amazon + MS + Flipkart specific patterns</td></tr>
+  </table></div>
+  <div class="sub-title">Daily Routine</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Time</th><th>Activity</th><th>Rule</th></tr>
+    <tr><td>Morning (before college)</td><td>1 Easy LeetCode. Paper first.</td><td>No hints for 20 min. After 20 min: approach only, not code. Then implement.</td></tr>
+    <tr><td>Evening (after college)</td><td>1 Medium LeetCode. 45 min timer.</td><td>Full 45 min. No hints during timer. After: editorial. Problem Journal entry.</td></tr>
+    <tr><td>Problem Journal (nightly)</td><td>Problem name, topic, pattern, key insight, time complexity, re-solve date.</td><td>NEVER skip. This is the interview bible.</td></tr>
+    <tr><td>Weekend — both days</td><td>3 problems + 1 timed OA simulation (90 min, 2 Medium, no hints).</td><td>Upsolve every wrong answer within 24 hours.</td></tr>
+  </table></div>
+</div>
+
+<!-- ██████ BEHAVIORAL ██████ -->
+<div id="behavioral" class="section">
+  <div class="section-title">🗣️ Behavioral Interview Prep</div>
+  <div class="alert alert-blue">Every product company has at least 1 behavioral round. Amazon has 2. Candidates who prepare only DSA and skip behavioral get rejected in final rounds. Write these stories NOW — not the night before an interview.</div>
+  <div class="sub-title">STAR Format</div>
+  <div class="card" style="background:rgba(0,200,150,0.05);border-color:rgba(0,200,150,0.2)">
+    <div style="font-size:13px;color:var(--text);font-family:monospace;line-height:2">
+      <strong style="color:var(--green)">S</strong>ITUATION — Set context in 1-2 sentences. What project/team/constraint?<br>
+      <strong style="color:var(--blue)">T</strong>ASK — What was YOUR specific responsibility? What was the goal?<br>
+      <strong style="color:var(--orange)">A</strong>CTION — What exact steps did YOU take? Use "I" not "we". Specific technical decisions and why.<br>
+      <strong style="color:var(--purple)">R</strong>ESULT — Measurable outcome. Numbers. Impact. Always quantify.
+    </div>
+  </div>
+  <div class="sub-title">Amazon's 16 Leadership Principles — Stories for Ramya</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>#</th><th>Leadership Principle</th><th>Story Source for Ramya</th></tr>
+    <tr><td>1</td><td>Customer Obsession</td><td>PolicyNav: how did the NLP system design prioritize end users (policy seekers)? What language model choice did you make because of their specific needs?</td></tr>
+    <tr><td>2</td><td>Ownership</td><td>Sign Language project — did you go beyond assignment? Adding webcam integration, A-Z full alphabet, on-screen display? Going beyond the brief IS ownership.</td></tr>
+    <tr><td>3</td><td>Invent and Simplify</td><td>Using MediaPipe landmarks to simplify Sign Language model vs traditional CNN approach — the simplification choice is the story.</td></tr>
+    <tr><td>4</td><td>Are Right, A Lot</td><td>Technical decision where you chose an approach others might disagree with. Why Scikit-learn was right for classification vs deep learning for that dataset size?</td></tr>
+    <tr><td>5</td><td>Learn and Be Curious</td><td>Learning TensorFlow, OpenCV, MediaPipe, HuggingFace — pick one learned quickly under pressure. How? Why? What was the result?</td></tr>
+    <tr><td>6</td><td>Hire and Develop the Best</td><td>Explaining ML concepts to classmates, helping a junior understand your project approach. Teaching = developing others.</td></tr>
+    <tr><td>7</td><td>Insist on Highest Standards</td><td>Moment in either project where you rejected a working but imperfect solution and improved it. Accuracy metric refinement, trajectory smoothness?</td></tr>
+    <tr><td>8</td><td>Think Big</td><td>The vision for PolicyNav: not just a search tool but a public policy navigation system for all citizens. How does it scale? Who does it serve?</td></tr>
+    <tr><td>9</td><td>Bias for Action</td><td>Technical decision made quickly without full information. Deployment choice, model choice under deadline pressure.</td></tr>
+    <tr><td>10</td><td>Frugality</td><td>Building everything on free tools: Streamlit (free), GitHub (free), Google Colab (free), HuggingFace (free). High-quality output with zero budget.</td></tr>
+    <tr><td>11</td><td>Earn Trust</td><td>A mistake in a project (wrong model, wrong data split) that you caught, disclosed, and fixed. The transparency story.</td></tr>
+    <tr><td>12</td><td>Dive Deep</td><td>A bug or performance issue in either project where you went to root cause instead of surface fix.</td></tr>
+    <tr><td>13</td><td>Have Backbone; Disagree and Commit</td><td>Technical disagreement with project partner or internship guidance that you pushed back on, made your case, then executed the team's decision.</td></tr>
+    <tr><td>14</td><td>Deliver Results</td><td>Completing both ML projects to deployed state. The commitment to finishing — not just building but deploying with documentation.</td></tr>
+    <tr><td>15</td><td>Strive to Be Earth's Best Employer</td><td>Why you want to work at this specific company. What about their products do you care about genuinely?</td></tr>
+    <tr><td>16</td><td>Success and Scale Bring Responsibility</td><td>If Sign Language Detection scaled to millions — what responsibilities exist? Accuracy requirements for accessibility users? Bias in training data?</td></tr>
+  </table></div>
+  <div class="sub-title">Referral DM Templates</div>
+  <div class="card" style="background:rgba(77,166,255,0.05);border-color:rgba(77,166,255,0.2)">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600">FIRST CONTACT (Week 2 — never ask for referral in first message):</div>
+    <div style="font-size:12px;color:var(--text);font-family:monospace;line-height:1.8;background:var(--surface);padding:12px;border-radius:8px;">
+      Hi [Name],<br><br>
+      I noticed [specific thing from their recent post or profile — be genuine].<br><br>
+      I am Ramya, a 3rd-year CSE AIML student at Jain University (CGPA 9.02), currently working as an AI Intern at Infosys building NLP systems for policy document intelligence. I am building toward [Company] roles and admire the work in [specific area].<br><br>
+      Would you be open to a 10-minute chat about your journey and what the culture at [Company] is like? No referral ask — I genuinely want to learn from someone who made this path work.<br><br>
+      Thank you for reading this.
+    </div>
+  </div>
+</div>
+
+<!-- ██████ RESOURCES ██████ -->
+<div id="resources" class="section">
+  <div class="section-title">📚 Resources and Platforms</div>
+  <div class="sub-title">DSA Learning</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Resource</th><th>Use For</th><th>When</th><th>Free?</th></tr>
+    <tr><td>Striver's A2Z Sheet (takeuforward.org)</td><td>Primary DSA curriculum backbone — 455+ problems with videos</td><td>Week 1, use continuously</td><td><span class="badge b-green">FREE</span></td></tr>
+    <tr><td>NeetCode 150 (neetcode.io)</td><td>150 most important interview patterns + video solutions</td><td>Week 1, alongside Striver</td><td><span class="badge b-green">FREE</span></td></tr>
+    <tr><td>Abdul Bari Sir (YouTube)</td><td>All algorithms: Arrays, Trees, Graphs, DP, Sorting</td><td>Continuously</td><td><span class="badge b-green">FREE</span></td></tr>
+    <tr><td>Aditya Verma (YouTube)</td><td>DP playlist — gold standard in India</td><td>Weeks 9-11 (DP phase)</td><td><span class="badge b-green">FREE</span></td></tr>
+    <tr><td>Neso Academy (YouTube)</td><td>OS, DBMS, CN — exam quality with animations</td><td>Daily CS theory rotation</td><td><span class="badge b-green">FREE</span></td></tr>
+    <tr><td>Gaurav Sen (YouTube)</td><td>System Design LLD + HLD for freshers</td><td>From Week 5</td><td><span class="badge b-green">FREE</span></td></tr>
+    <tr><td>visualgo.net</td><td>DSA animations — use for every new data structure</td><td>Every new DS learned</td><td><span class="badge b-green">FREE</span></td></tr>
+    <tr><td>Pramp.com</td><td>Free peer mock interviews — both sides</td><td>From Week 7, 3×/week from Week 10</td><td><span class="badge b-green">FREE</span></td></tr>
+  </table></div>
+  <div class="sub-title">Project Deployment (All Free)</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Tool</th><th>Deploy What</th><th>Time</th></tr>
+    <tr><td>Streamlit Cloud (share.streamlit.io)</td><td>Any Python ML project — fastest ML deployment</td><td>45 min first time</td></tr>
+    <tr><td>Hugging Face Spaces (huggingface.co/spaces)</td><td>ML models with Gradio UI</td><td>30 min</td></tr>
+    <tr><td>Vercel (vercel.com)</td><td>React frontend apps</td><td>20 min</td></tr>
+    <tr><td>Railway.app</td><td>Python backend APIs (FastAPI/Flask)</td><td>30 min</td></tr>
+    <tr><td>GitHub Pages</td><td>Static portfolio website</td><td>15 min</td></tr>
+  </table></div>
+  <div class="sub-title">Job Application Platforms</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Platform</th><th>Best For</th><th>Priority</th></tr>
+    <tr><td>Internshala (internshala.com)</td><td>SDE/ML/DS interns — largest volume in India. Filter: ML Intern + Remote.</td><td><span class="badge b-red">Start Week 1</span></td></tr>
+    <tr><td>Wellfound / AngelList (wellfound.com)</td><td>Funded startups ₹15-25 LPA. Less competition than MAANG.</td><td><span class="badge b-red">Start Week 1</span></td></tr>
+    <tr><td>LinkedIn Jobs</td><td>Direct applications + Easy Apply. Saved search: ML Intern Bengaluru 2026.</td><td><span class="badge b-red">Start Week 1</span></td></tr>
+    <tr><td>Company career pages (direct)</td><td>Most reliable. Check Razorpay, PhonePe, Swiggy, CRED, Flipkart weekly.</td><td><span class="badge b-red">Start Week 1</span></td></tr>
+    <tr><td>Naukri.com</td><td>Broad Indian job market. Set email alert.</td><td><span class="badge b-amber">Start Week 1</span></td></tr>
+    <tr><td>Cutshort.io</td><td>Product company specific. Complete profile once — algorithm matches passively.</td><td><span class="badge b-amber">Start Week 1</span></td></tr>
+    <tr><td>Instahyre (instahyre.com)</td><td>Product companies. 0 experience + SDE + Bengaluru filter.</td><td><span class="badge b-amber">Start Week 3</span></td></tr>
+    <tr><td>freshershunt.in</td><td>Off-campus drive aggregator. Check daily. Set Telegram alert.</td><td><span class="badge b-amber">Start Week 2</span></td></tr>
+    <tr><td>Devfolio.co</td><td>AI/ML hackathons. Winning gets referrals + direct hire sometimes.</td><td><span class="badge b-blue">Register Week 1</span></td></tr>
+  </table></div>
+</div>
+
+</div><!-- end main -->
+
+<footer>
+  Built specifically for Ramya K &nbsp;·&nbsp; CSE AIML &nbsp;·&nbsp; Jain University, Bengaluru &nbsp;·&nbsp; CGPA 9.02<br>
+  March 2026 Start &nbsp;·&nbsp; August 2026 Placement Season &nbsp;·&nbsp; Deploy on GitHub Pages for personal use
+</footer>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleWeek(header) {
+  const body = header.nextElementSibling;
+  const icon = header.querySelector('.toggle-icon');
+  const isOpen = body.classList.toggle('open');
+  header.classList.toggle('open', isOpen);
+}
+function toggleDay(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+function toggleAll() {
+  const allBodies = document.querySelectorAll('.week-body');
+  const allHeaders = document.querySelectorAll('.week-header');
+  const anyOpen = Array.from(allBodies).some(b => b.classList.contains('open'));
+  allBodies.forEach(b => { if(anyOpen) b.classList.remove('open'); else b.classList.add('open'); });
+  allHeaders.forEach(h => { if(anyOpen) h.classList.remove('open'); else h.classList.add('open'); });
+  document.querySelector('.expand-all').textContent = anyOpen ? '⊞ Expand All Weeks' : '⊟ Collapse All Weeks';
+}
+// Animate progress bars on load
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.prog-fill').forEach(f => {
+      const w = f.style.width; f.style.width = '0'; 
+      setTimeout(() => f.style.width = w, 100);
+    });
+  }, 300);
+});
+</script>
+</body>
+</html>

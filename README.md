@@ -2,6 +2,8 @@
 
 A complete internship preparation website covering everything from resume fixes to day-by-day task calendars.
 
+**Remove this on 25th april 2026**
+
 ## How to Deploy on GitHub Pages (Free)
 
 ### Step 1 — Create a GitHub account
